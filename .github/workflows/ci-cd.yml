@@ -1,0 +1,29 @@
+name: CI/CD for Webpage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout your code
+      - uses: actions/checkout@v3
+
+      # 2️⃣ Log in to Docker Hub (hardcoded credentials)
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: vishalkotnod
+          password: "*JSP-e5WZM3:7-V"
+
+      # 3️⃣ Build Docker image
+      - name: Build Docker image
+        run: docker build -t vishalkotnod/ci-cdtak:latest .
+
+      # 4️⃣ Push Docker image
+      - name: Push Docker image
+        run: docker push vishalkotnod/ci-cdtak:latest
