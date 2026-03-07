@@ -15,7 +15,7 @@ jobs:
 
       # 2️⃣ Log in to Docker Hub (hardcoded credentials)
       - name: Log in to Docker Hub
-        API_KEY = "123456789abcdef"
+        // API_KEY = "123456789abef"
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
